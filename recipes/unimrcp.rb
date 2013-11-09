@@ -1,3 +1,5 @@
+node.default['asterisk']['configure']['mrcp'] = true
+
 case node['platform']
 when "ubuntu","debian"
   node['asterisk']['unimrcp']['packages'].each do |pkg|

@@ -1,6 +1,15 @@
 default['asterisk']['use_digium_repo']  = false
 default['asterisk']['packages']         = ['asterisk', 'asterisk-dev']
 
+#Config files we should manage
+default['asterisk']['configure']['extensions'] = true
+default['asterisk']['configure']['gtalk']      = true
+default['asterisk']['configure']['jabber']     = true
+default['asterisk']['configure']['manager']    = true
+default['asterisk']['configure']['modules']    = true
+default['asterisk']['configure']['mrcp']       = false
+default['asterisk']['configure']['sip']        = true
+
 #Setup the Manager.conf file, refer to: http://www.voip-info.org/tiki-index.php?page=Asterisk%20config%20manager.conf
 #[general]
 default['asterisk']['manager_enabled']         = 'yes'
