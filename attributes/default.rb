@@ -10,6 +10,11 @@ default['asterisk']['configure']['modules']    = true
 default['asterisk']['configure']['mrcp']       = false
 default['asterisk']['configure']['sip']        = true
 
+# Users and dialplans.  Configrable as attributes or from data bags
+default['asterisk']['users']                   = nil
+default['asterisk']['auth']                    = nil
+default['asterisk']['dialplan_contexts']       = nil
+
 #Setup the Manager.conf file, refer to: http://www.voip-info.org/tiki-index.php?page=Asterisk%20config%20manager.conf
 #[general]
 default['asterisk']['manager_enabled']         = 'yes'
