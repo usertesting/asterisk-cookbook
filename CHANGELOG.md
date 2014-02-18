@@ -1,4 +1,5 @@
 # develop
+  * CentOS support
 
 # 0.2.7
   * Use UniMRCP cookbook to install UniMRCP and its Asterisk modules

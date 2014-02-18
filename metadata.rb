@@ -16,3 +16,4 @@ depends 'yum', '~> 3.0'
 
 supports 'debian', '>= 7.1'
 supports 'ubuntu', '>= 10.04'
+supports 'centos', '>= 6.5'
