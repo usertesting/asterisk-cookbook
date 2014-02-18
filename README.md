@@ -27,13 +27,24 @@ Add `recipe[asterisk]` to your node's run list. Optionally add `recipe[asterisk:
 * `node['asterisk']['source']['install_samples']` - wether or not to install sample config (default `true`)
 
 ## Package install attributes
+
 * `node['asterisk']['package']['names']` - the Asterisk packages to install (default `%w(asterisk asterisk-dev)`)
 * `node['asterisk']['package']['repo']['enable']` - if the Asterisk official repository should be enabled (default `false`)
+
+### On Debian/Ubuntu systems:
+
 * `node['asterisk']['package']['repo']['url']` - the URL of the Asterisk official repo (default `http://packages.asterisk.org/deb`)
 * `node['asterisk']['package']['repo']['distro']` - the distro to select from the repo (default `node['lsb']['codename']`)
 * `node['asterisk']['package']['repo']['branches']` - the branches of the repo to import (default `%w(main)`)
 * `node['asterisk']['package']['repo']['keyserver']` - the keyserver against which to auth the repo (default `pgp.mit.edu`)
 * `node['asterisk']['package']['repo']['key']` - the repo's public GPG key (default `175E41DF`)
+
+### On RHEL/CentOS based systems:
+
+* `node['asterisk']['package']['repo']['urls']` - the names / URLs of the Asterisk official repos (default `{
+  'asterisk-11' => 'http://packages.asterisk.org/centos/$releasever/asterisk-11/$basearch/',
+  'asterisk-current' => 'http://packages.asterisk.org/centos/$releasever/current/$basearch/',
+}`)
 
 ## SIP attributes
 * `node['asterisk']['sip']['context']` - (default `'default'`)

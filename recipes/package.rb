@@ -1,5 +1,5 @@
-case node['platform']
-when 'ubuntu', 'debian'
+case node['platform_family']
+when 'debian'
   apt_repository 'asterisk' do
     uri node['asterisk']['package']['repo']['url']
     distribution node['asterisk']['package']['repo']['distro']
@@ -8,8 +8,18 @@ when 'ubuntu', 'debian'
     key node['asterisk']['package']['repo']['key']
     only_if node['asterisk']['package']['repo']['enable']
   end
-
-  node['asterisk']['package']['names'].each do |pkg|
-    package pkg
+when 'rhel'
+  node['asterisk']['package']['repo']['urls'].each do |name, url|
+    yum_repository name do
+      description "Asterisk yum repo"
+      baseurl url
+      gpgcheck false
+      action :create
+      only_if { node['asterisk']['package']['repo']['enable'] }
+    end
   end
+end
+
+node['asterisk']['package']['names'].each do |pkg|
+  package pkg
 end

@@ -18,7 +18,12 @@ suites:
   run_list: ['recipe[asterisk]']
   attributes: {
     asterisk: {
-      install_method: 'package'
+      install_method: 'package',
+      package: {
+        repo: {
+          enable: true
+        }
+      }
     }
   }
 - name: source
