@@ -52,6 +52,7 @@ bash "install_asterisk" do
     make install
     make config
     #{'make samples' if node['asterisk']['source']['install_samples']}
+    ldconfig
   EOH
   not_if "test -f #{node['asterisk']['prefix']['bin']}/sbin/asterisk"
   notifies :reload, resources('service[asterisk]')
