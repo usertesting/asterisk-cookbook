@@ -1,11 +1,10 @@
 include_recipe 'apt'
 
-case node['platform']
-when "ubuntu", "debian"
-  node['asterisk']['source']['packages'].each do |pkg|
-    package pkg do
-      options "--force-yes"
-    end
+include_recipe 'build-essential'
+
+node['asterisk']['source']['packages'].each do |pkg|
+  package pkg do
+    options "--force-yes" if node['platform_family'] == 'debian'
   end
 end
 
@@ -47,6 +46,7 @@ bash "install_asterisk" do
   code <<-EOH
     tar zxf #{source_path}
     cd asterisk-#{version =~ /(\d*)-current/ ? "#{$1}.*" : version}
+    ./contrib/scripts/install_prereq install
     ./configure --prefix=#{node['asterisk']['prefix']['bin']} --sysconfdir=#{node['asterisk']['prefix']['conf']} --localstatedir=#{node['asterisk']['prefix']['state']}
     make
     make install
