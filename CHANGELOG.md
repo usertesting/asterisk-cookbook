@@ -1,4 +1,6 @@
 # develop
+
+# 0.3.0
   * CentOS support
 
 # 0.2.7
