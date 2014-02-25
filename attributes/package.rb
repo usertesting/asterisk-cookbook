@@ -11,5 +11,6 @@ when 'rhel'
   default['asterisk']['package']['repo']['urls'] = {
     'asterisk-11' => 'http://packages.asterisk.org/centos/$releasever/asterisk-11/$basearch/',
     'asterisk-current' => 'http://packages.asterisk.org/centos/$releasever/current/$basearch/',
+    'digium-asterisk-current' => 'http://packages.digium.com/centos/$releasever/current/$basearch/',
   }
 end
