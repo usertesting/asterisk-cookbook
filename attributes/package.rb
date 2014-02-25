@@ -1,5 +1,12 @@
-default['asterisk']['package']['names']             = %w(asterisk asterisk-dev)
+default['asterisk']['package']['names'] = case platform_family
+when 'debian'
+  %w(asterisk asterisk-dev)
+when 'rhel'
+  %w(asterisk asterisk-devel)
+end
+
 default['asterisk']['package']['repo']['enable']    = false
+
 case platform_family
 when 'debian'
   default['asterisk']['package']['repo']['url']       = 'http://packages.asterisk.org/deb'
