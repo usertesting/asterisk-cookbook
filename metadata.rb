@@ -10,7 +10,7 @@ recipe 'asterisk', 'Install Asterisk and configure'
 recipe 'asterisk::unimrcp', 'Install Asterisk UniMRCP plugin and configure'
 
 depends 'apt', '~> 2.2'
-depends 'build-essential', '~> 1.4'
+depends 'build-essential'
 depends 'unimrcp', '~> 0.2'
 depends 'yum', '~> 3.0'
 
