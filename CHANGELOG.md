@@ -1,5 +1,6 @@
 # develop
   * Unlock dependency on build-essential for broader compatibility
+  * Update unimrcp dependency to stable release
 
 # 0.3.0
   * CentOS support
