@@ -1,4 +1,6 @@
 # develop
+
+# 1.0.0
   * Unlock dependency on build-essential for broader compatibility
   * Update unimrcp dependency to stable release
 
