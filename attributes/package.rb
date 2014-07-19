@@ -1,5 +1,12 @@
-default['asterisk']['package']['names']             = %w(asterisk asterisk-dev)
+default['asterisk']['package']['names'] = case platform_family
+when 'debian'
+  %w(asterisk asterisk-dev)
+when 'rhel'
+  %w(asterisk asterisk-devel)
+end
+
 default['asterisk']['package']['repo']['enable']    = false
+
 case platform_family
 when 'debian'
   default['asterisk']['package']['repo']['url']       = 'http://packages.asterisk.org/deb'
@@ -11,5 +18,6 @@ when 'rhel'
   default['asterisk']['package']['repo']['urls'] = {
     'asterisk-11' => 'http://packages.asterisk.org/centos/$releasever/asterisk-11/$basearch/',
     'asterisk-current' => 'http://packages.asterisk.org/centos/$releasever/current/$basearch/',
+    'digium-asterisk-current' => 'http://packages.digium.com/centos/$releasever/current/$basearch/',
   }
 end
