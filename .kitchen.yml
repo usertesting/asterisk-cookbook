@@ -10,8 +10,11 @@ provisioner:
 platforms:
   - name: centos-6.5
   - name: ubuntu-12.04
+    run_list: apt::default
   - name: ubuntu-10.04
+    run_list: apt::default
   - name: debian-7.4
+    run_list: apt::default
 
 suites:
 - name: package
