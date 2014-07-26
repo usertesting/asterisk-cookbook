@@ -9,6 +9,11 @@ provisioner:
 
 platforms:
   - name: centos-6.5
+    run_list: asterisk-test
+  - name: fedora-19
+    run_list: asterisk-test
+  - name: fedora-20
+    run_list: asterisk-test
   - name: ubuntu-12.04
     run_list: apt::default
   - name: ubuntu-10.04
@@ -17,7 +22,15 @@ platforms:
     run_list: apt::default
 
 suites:
-- name: package
+- name: package-native
+  run_list: ['recipe[asterisk]']
+  attributes: {
+    asterisk: {
+      install_method: 'package'
+    }
+  }
+
+- name: package-digium
   run_list: ['recipe[asterisk]']
   attributes: {
     asterisk: {
@@ -29,6 +42,8 @@ suites:
       }
     }
   }
+  excludes: ["fedora-19", "fedora-20"]
+
 - name: source
   run_list: ['recipe[asterisk]']
   attributes: {
