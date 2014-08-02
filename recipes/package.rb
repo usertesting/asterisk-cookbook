@@ -6,7 +6,7 @@ when 'debian'
     components node['asterisk']['package']['repo']['branches']
     keyserver node['asterisk']['package']['repo']['keyserver']
     key node['asterisk']['package']['repo']['key']
-    only_if node['asterisk']['package']['repo']['enable']
+    only_if { node['asterisk']['package']['repo']['enable'] }
   end
 when 'rhel'
   node['asterisk']['package']['repo']['urls'].each do |name, url|
