@@ -1,4 +1,6 @@
 # develop
+
+# 1.1.0
   * Add support for Fedora
   * Make sure sox is installed.
   * Use correct lib_dir on RHEL/Fedora platforms, where lib != lib64
