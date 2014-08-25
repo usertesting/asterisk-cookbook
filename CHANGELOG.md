@@ -5,6 +5,7 @@
   * Make sure sox is installed.
   * Use correct lib_dir on RHEL/Fedora platforms, where lib != lib64
   * Use EPEL packages to install Asterisk by default
+  * Fix a broken guard to allow installation from upstream packages
 
 # 1.0.0
   * Unlock dependency on build-essential for broader compatibility
