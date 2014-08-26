@@ -55,5 +55,5 @@ bash "install_asterisk" do
     ldconfig
   EOH
   not_if "test -f #{node['asterisk']['prefix']['bin']}/sbin/asterisk"
-  notifies :reload, resources('service[asterisk]')
+  notifies :reload, 'service[asterisk]'
 end
