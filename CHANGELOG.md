@@ -1,5 +1,8 @@
 # develop
 
+# 1.1.1
+  * Attribute typo in template
+
 # 1.1.0
   * Add support for Ubuntu 14.04
   * Add support for Fedora
