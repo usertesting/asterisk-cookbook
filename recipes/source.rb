@@ -44,6 +44,7 @@ bash "install_asterisk" do
   user "root"
   cwd File.dirname(source_path)
   code <<-EOH
+    set -e
     tar zxf #{source_path}
     cd asterisk-#{version =~ /(\d*)-current/ ? "#{$1}.*" : version}
     ./contrib/scripts/install_prereq install
